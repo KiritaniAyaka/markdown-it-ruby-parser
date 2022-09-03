@@ -1,0 +1,47 @@
+{
+  "name": "markdown-it-ruby-parser",
+  "version": "0.1.0",
+  "description": "",
+  "author": "KiritaniAyaka <kiritaniayaka@qq.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/KiritaniAyaka/markdown-it-ruby-parser#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KiritaniAyaka/markdown-it-ruby-parser.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KiritaniAyaka/markdown-it-ruby-parser/issues"
+  },
+  "keywords": [
+    "markdown",
+    "markdown-it",
+    "ruby",
+    "markdown-it-plugin",
+    "plugin"
+  ],
+  "main": "lib/index.js",
+  "files": [
+    "/lib"
+  ],
+  "scripts": {
+    "test": "vitest",
+    "coverage": "vitest --coverage",
+    "build:min": "tsc && esbuild lib/index.js --minify --outfile=lib/index.min.js",
+    "build": "tsc",
+    "clean": "rimraf lib coverage",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "@kiritaniayaka/eslint-config": "^0.2.0",
+    "@types/markdown-it": "^12.2.3",
+    "@vitest/coverage-c8": "^0.22.1",
+    "esbuild": "^0.15.6",
+    "eslint": "^8.22.0",
+    "markdown-it": "^13.0.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.7.4",
+    "vite": "^3.0.9",
+    "vitest": "^0.22.1"
+  }
+}

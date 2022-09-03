@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		/* Visit https://aka.ms/tsconfig.json to read more about this file */
+		"module": "CommonJS",
+		"rootDir": "./src",
+		"baseUrl": "./src",
+		"outDir": "./lib",
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"strict": true,
+		"noImplicitAny": true,
+		"skipLibCheck": true,
+		"moduleResolution": "Node",
+		"declaration": true,
+		"noEmit": false,
+		"removeComments": true
+	},
+	"include": ["src/**/*.ts"]
+}

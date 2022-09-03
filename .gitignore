@@ -1,0 +1,6 @@
+.vscode
+!.vscode/recommend.json
+
+node_modules
+/lib/
+/coverage/
