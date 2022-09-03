@@ -1,5 +1,8 @@
 # markdown-it-ruby-parser
 
+![npm Version Badge](https://img.shields.io/npm/v/markdown-it-ruby-parser.svg)
+![GitHub CI Status Badge](https://github.com/KiritaniAyaka/markdown-it-ruby-parser/workflows/CI/badge.svg)
+
 Ruby tag plugin for `markdown-it`
 
 # Usage
