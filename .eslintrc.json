@@ -1,3 +1,6 @@
 {
-	"extends": "@kiritaniayaka"
+	"extends": "@kiritaniayaka",
+	"rules": {
+		"yml/no-empty-mapping-value": "off"
+	}
 }
