@@ -69,7 +69,6 @@ jobs:
       - name: Install Dependencies
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
         run: pnpm install
-      - name: Running Test
       - name: Running Coverage
         run: pnpm coverage
       - name: Upload Coverage
