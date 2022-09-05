@@ -36,6 +36,7 @@
 		"@kiritaniayaka/eslint-config": "^0.2.0",
 		"@types/markdown-it": "^12.2.3",
 		"@vitest/coverage-c8": "^0.22.1",
+		"@vitest/coverage-istanbul": "^0.23.1",
 		"esbuild": "^0.15.6",
 		"eslint": "^8.22.0",
 		"markdown-it": "^13.0.1",
