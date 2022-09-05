@@ -54,26 +54,6 @@ jobs:
         run: pnpm install
       - name: Running Test
         run: pnpm test
-  coverage:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: latest
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 16
-          cache: pnpm
-      - name: Install Dependencies
-        if: steps.cache-dependencies.outputs.cache-hit != 'true'
-        run: pnpm install
       - name: Running Coverage
         run: pnpm coverage
       - name: Upload Coverage
@@ -81,3 +61,4 @@ jobs:
         with:
           files: ./coverage/clover.xml
           fail_ci_if_error: true
+          verbose: true
