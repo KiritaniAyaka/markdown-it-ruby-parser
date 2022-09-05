@@ -54,3 +54,10 @@ jobs:
         run: pnpm install
       - name: Running Test
         run: pnpm test
+      - name: Running Coverage
+        run: pnpm coverage
+      - name: Upload Coverage
+        uses: codecov/codecov-action@v3
+        with:
+          fail_ci_if_error: true
+          verbose: true
