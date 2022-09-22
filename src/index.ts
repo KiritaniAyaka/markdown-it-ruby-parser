@@ -16,16 +16,32 @@ export interface RubyParserOptions {
 	rp?: boolean
 }
 
+const defaultOptions: RubyParserOptions = {
+	bracket: '(',
+	rb: true,
+	rp: true,
+}
+
 export function rubyParser(md: MarkdownIt, options?: RubyParserOptions) {
-	if (!options) {
-		options = {
-			bracket: '(',
-			rb: true,
-			rp: true,
-		}
-	}
-	options.bracket = options.bracket || '('
+	options = initOptions(options)
 	parser(md, options.bracket === '{' ? symbols1 : symbols2, options)
+}
+
+function initOptions(options?: RubyParserOptions): RubyParserOptions {
+	if (!options) {
+		return defaultOptions
+	}
+
+	getObjectKeys(defaultOptions).forEach((key) => {
+		if (options[key] === undefined) {
+			(options as any)[key] = defaultOptions[key]
+		}
+	})
+	return options
+}
+
+function getObjectKeys<T extends object>(obj: T) {
+	return Object.keys(obj) as (keyof T)[]
 }
 
 function parser(md: MarkdownIt, symbols: KeySymbols, options: RubyParserOptions) {
@@ -93,7 +109,7 @@ function parser(md: MarkdownIt, symbols: KeySymbols, options: RubyParserOptions)
 
 		const ruby = state.src.slice(contentPos + 1, state.pos)
 
-		const { rb = true, rp = true } = options
+		const { rb, rp } = options
 
 		gen(state, 'ruby', (state) => {
 			if (rb) {
