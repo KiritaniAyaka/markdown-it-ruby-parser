@@ -1,6 +1,6 @@
 # markdown-it-ruby-parser
 
-![npm Version Badge](https://img.shields.io/npm/v/markdown-it-ruby-parser.svg)
+[![npm Version Badge](https://img.shields.io/npm/v/markdown-it-ruby-parser.svg)](https://www.npmjs.com/package/markdown-it-ruby-parser)
 ![GitHub CI Status Badge](https://github.com/KiritaniAyaka/markdown-it-ruby-parser/workflows/CI/badge.svg)
 
 Ruby tag plugin for `markdown-it`
@@ -71,11 +71,15 @@ Enable `rb` tag
 
 This configuration decide whether the content of rendering has `rb` tag.
 
+Default: `true`
+
 ### rp
 
 Enable `rp` tag
 
 This configuration decide whether the content of rendering has `rp` tag.
+
+Default: `true`
 
 ---
 
