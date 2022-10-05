@@ -22,26 +22,9 @@ const defaultOptions: RubyParserOptions = {
 	rp: true,
 }
 
-export function rubyParser(md: MarkdownIt, options?: RubyParserOptions) {
-	options = initOptions(options)
+export function rubyParser(md: MarkdownIt, options: RubyParserOptions) {
+	options = { ...defaultOptions, ...options }
 	parser(md, options.bracket === '{' ? symbols1 : symbols2, options)
-}
-
-function initOptions(options?: RubyParserOptions): RubyParserOptions {
-	if (!options) {
-		return defaultOptions
-	}
-
-	getObjectKeys(defaultOptions).forEach((key) => {
-		if (options[key] === undefined) {
-			(options as any)[key] = defaultOptions[key]
-		}
-	})
-	return options
-}
-
-function getObjectKeys<T extends object>(obj: T) {
-	return Object.keys(obj) as (keyof T)[]
 }
 
 function parser(md: MarkdownIt, symbols: KeySymbols, options: RubyParserOptions) {
