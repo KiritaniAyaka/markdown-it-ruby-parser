@@ -147,6 +147,19 @@ describe('Test Ruby', () => {
 	})
 })
 
+describe('Test for mixing with other tags', () => {
+	it('Mixing with links', () => {
+		const md = new MarkdownIt()
+		md.use(rubyParser)
+		const origin = '[link](http:link) [ruby]^(rubytop)'
+		const result = md.render(origin).trim()
+
+		expect(result).toBe(
+			'<p><a href="http:link">link</a> <ruby><rb>ruby</rb><rp>(</rp><rt>rubytop</rt><rp>)</rp></ruby></p>',
+		)
+	})
+})
+
 describe('Test for abnormal situation', () => {
 	describe('Abnormal ends', () => {
 		it('Ends of rt not found', () => {

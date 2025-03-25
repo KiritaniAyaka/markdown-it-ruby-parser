@@ -46,6 +46,7 @@ function parser(md: MarkdownIt, symbols: KeySymbols, options: RubyParserOptions)
 		}
 
 		let found = false
+		let baseEndPos = 0
 
 		while (state.pos < max) {
 			if (
@@ -54,6 +55,7 @@ function parser(md: MarkdownIt, symbols: KeySymbols, options: RubyParserOptions)
 				state.src.charCodeAt(state.pos - 2) === symbols[1]
 			) {
 				found = true
+				baseEndPos = state.pos - 2
 				break
 			}
 
@@ -61,9 +63,24 @@ function parser(md: MarkdownIt, symbols: KeySymbols, options: RubyParserOptions)
 		}
 
 		// part of rt not found
-		if (!found || start + 1 === state.pos) { // reset state if not found
+		if (!found || start + 1 === baseEndPos) { // reset state if not found
 			state.pos = start
 			return false
+		}
+
+		let checkPos = start
+		while (checkPos < baseEndPos) {
+			// check for ](
+			if (
+				state.src.charCodeAt(checkPos) === symbols[1] &&
+				checkPos + 1 < max &&
+				state.src.charCodeAt(checkPos + 1) === symbols[3]
+			) {
+				// markdown link instead of ruby
+				state.pos = start
+				return false
+			}
+			checkPos++
 		}
 
 		const contentPos = state.pos
